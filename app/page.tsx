@@ -5,11 +5,17 @@ import { FeaturesList } from "@/components/features-list"
 export default async function Home() {
   const supabase = createClient()
 
+  console.log("[v0] SUPABASE_URL:", process.env.NEXT_PUBLIC_SUPABASE_URL ? "SET" : "MISSING")
+  console.log("[v0] SUPABASE_ANON_KEY:", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? "SET" : "MISSING")
+
   const { data: messages, error } = await supabase
     .from("messages")
     .select("*")
     .order("created_at", { ascending: false })
     .limit(1)
+
+  console.log("[v0] messages:", JSON.stringify(messages))
+  console.log("[v0] error:", JSON.stringify(error))
 
   const latestMessage = messages?.[0] ?? null
 

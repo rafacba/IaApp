@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback";
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1a1a2e;
