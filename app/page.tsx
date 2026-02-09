@@ -3,7 +3,7 @@ import { MessageCard } from "@/components/message-card"
 import { FeaturesList } from "@/components/features-list"
 
 export default async function Home() {
-  const supabase = await createClient()
+  const supabase = createClient()
 
   const { data: messages, error } = await supabase
     .from("messages")
